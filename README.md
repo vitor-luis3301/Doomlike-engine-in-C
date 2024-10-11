@@ -11,8 +11,13 @@ Source: [(YouTube) Code a DOOM-like game engine from scratch in C [PART I]](http
 
 ## Roadmap
 :heavy_check_mark: Create render.
+
 :x: take info from .txt.
+
 :x: Create level editor.
+
 :x: Add textures.
+
 :x: Add billboarding entities.
+
 :x: Add mouse movement.
