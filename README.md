@@ -6,4 +6,4 @@ the map based on the info from the file.
 <br>
 currently it only has 1 map and basic controlls. I intend to update this project further.
 
-Source: (YouTube)[Code a DOOM-like game engine from scratch in C [PART I]](https://www.youtube.com/watch?v=p7f9p9nDsmc)
+Source: [(YouTube) Code a DOOM-like game engine from scratch in C [PART I]](https://www.youtube.com/watch?v=p7f9p9nDsmc)
