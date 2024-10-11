@@ -27,7 +27,7 @@ Source: [ Code a DOOM-like game engine from scratch in C [PART I] ](https://www.
 # Roadmap
 :white_check_mark: Create render.
 
-:x: take info from .txt.
+:white_check_mark: take info from .txt.
 
 :x: Create level editor.
 
