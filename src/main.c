@@ -7,9 +7,9 @@
 #include "engine/renderer.h"
 #include "engine/keyboard.h"
 
-#define SCREEN_W 800
-#define SCREEN_H 600
-#define FPS 120
+#define SCREEN_W 1600
+#define SCREEN_H 720 * 1.25
+#define FPS 240
 
 char *strremove(char *str, const char *sub) {
     char *p, *q, *r;
@@ -32,7 +32,7 @@ void GameLoop(game_state *state, player *Player)
         G_FrameStart();
 
         K_HandleEvents(state, Player);
-        R_Render(Player, state, 300.0);
+        R_Render(Player, state, 350.0);
 
         G_FrameEnd(state);
     }
