@@ -5,10 +5,6 @@
 - [X] Colocar a quantidade de paredes em cada setor no arquivo .txt.
 - [X] Fazer o código interpretar essas informações automaticamente.
 
-### RENDERIZAÇÃO
-- [ ] Descobrir porque o chão desaparece nos portais.
-- [ ] Criar uma sala por dentro com o sistema
-
 ### TEXTURAS
 - [ ] Adicionar os arquivos das TEXTURAS
 - [ ] Adicionar a opção de usar texturas no `render.h`
