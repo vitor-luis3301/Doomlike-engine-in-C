@@ -55,12 +55,19 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    char sectorCountData[20];
+
+    fgets(sectorCountData, 20, fp);
+    
+    if (strstr(sectorCountData, "# SECTOR COUNT: "))
+        strremove(sectorCountData, "# SECTOR COUNT: ");
+
+    int sectorCount = atoi(sectorCountData);
+
     char sectorData[100];
-    int sectorCount = 16;
-    int nums[8];
+    
     sector sectors[sectorCount];
-    int sectorsAdditionalData[sectorCount][3];
-    unsigned int colors[3];
+    int sectorsAdditionalData[sectorCount][4];
 
     int numSector = 0;
 
@@ -72,7 +79,9 @@ int main(int argc, char *argv[])
         else if (0!=strcmp(sectorData, "[SECTORS]\n"))
         {
             /*SECTORS*/
-            
+            int nums[9];
+            unsigned int colors[3];
+
             char *token;
 
             int i = 0;
@@ -88,11 +97,12 @@ int main(int argc, char *argv[])
                 i++;
                 token = strtok(NULL, ",");
             }
-            //printf("[%d, %d, %u, %u, %u, %s, %d, %d]\n", nums[0], nums[1], colors[0], colors[1], colors[2], nums[5] ? "true" : "false", nums[6], nums[7]);
+            //printf("[%d, %d, %u, %u, %u, %s, %d, %d, %d]\n", nums[0], nums[1], colors[0], colors[1], colors[2], nums[5] ? "true" : "false", nums[6], nums[7], nums[8]);
             sectors[numSector] = R_CreateSector(nums[0], nums[1], colors[0], colors[1], colors[2]);
             sectorsAdditionalData[numSector][0] = nums[5];
             sectorsAdditionalData[numSector][1] = nums[6];
             sectorsAdditionalData[numSector][2] = nums[7];
+            sectorsAdditionalData[numSector][3] = nums[8];
 
             numSector++;
         }
@@ -125,11 +135,9 @@ int main(int argc, char *argv[])
 
     fclose(fp);
 
-    int numOfWalls[] = {16, 16, 16, 32, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16};
-
     for (int i = 0; i < sectorCount; i++)
     {
-        for (int j = 0; j < numOfWalls[i]; j += 4)
+        for (int j = 0; j < sectorsAdditionalData[i][3]; j += 4)
         {
             //printf("[%d, %d, %d, %d]\n", wallCoords[i][j], wallCoords[i][j+1], wallCoords[i][j+2], wallCoords[i][j+3]);
             wall w;
